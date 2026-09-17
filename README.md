@@ -89,7 +89,7 @@ VKURoomBooking/
 ## 4. Race Condition Resolution Blueprint (Cơ Chế Khóa Tranh Chấp Đồng Thời)
 
 ### A. Kịch bản lỗi
-Hai sinh viên **A** (MSSV: 22IT045) và **B** (MSSV: 22IT099) cùng mở phòng `V.204` vào lúc 08:00:00 và cùng chạm nút **"Xác Nhận Đặt"** cho khung giờ **07:30 – 09:30** vào ngày mai tại cùng mili-giây thứ 120.
+Hai sinh viên **A (Long Nhật)** (MSSV: 23IT196) và **B** (MSSV: 23IT099) cùng mở phòng `V.204` vào lúc 08:00:00 và cùng chạm nút **"Xác Nhận Đặt"** cho khung giờ **07:30 – 09:30** vào ngày mai tại cùng mili-giây thứ 120.
 
 ```
 Sinh viên A (UI) ----[ Chạm Đặt Slot 1 ]---> Optimistic: Gán Slot 1 'Occupied' (Snapshot Saved)

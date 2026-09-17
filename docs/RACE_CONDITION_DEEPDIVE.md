@@ -9,10 +9,10 @@
 
 ### Kịch bản thực tế:
 Vào lúc 07:00:00 sáng, hệ thống mở cổng đăng ký phòng thực hành máy trạm cao cấp **V.204** cho đợt báo cáo đồ án kết thúc học phần.
-- **Sinh viên 1 (An - MSSV: 22IT045):** Muốn đặt Ca 1 (07:30 – 09:30) ngày 18/09/2026.
-- **Sinh viên 2 (Bình - MSSV: 22IT099):** Cũng muốn đặt đúng Ca 1 phòng V.204 ngày 18/09/2026.
+- **Sinh viên 1 (Long Nhật - MSSV: 23IT196):** Muốn đặt Ca 1 (07:30 – 09:30) ngày 18/09/2026.
+- **Sinh viên 2 (Bình - MSSV: 23IT099):** Cũng muốn đặt đúng Ca 1 phòng V.204 ngày 18/09/2026.
 
-Cả hai sinh viên nhìn thấy trên màn hình điện thoại Ca 1 đang có màu xanh lá (*"Còn trống"*). Vào đúng thời điểm **07:00:01.050**, cả An và Bình cùng ấn nút **"Xác Nhận Đặt"**.
+Cả hai sinh viên nhìn thấy trên màn hình điện thoại Ca 1 đang có màu xanh lá (*"Còn trống"*). Vào đúng thời điểm **07:00:01.050**, cả Long Nhật và Bình cùng ấn nút **"Xác Nhận Đặt"**.
 
 ```
 Thời Gian (ms)      Sinh viên An (Client A)            Sinh viên Bình (Client B)           Cơ sở dữ liệu (Database Server)

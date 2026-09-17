@@ -33,10 +33,10 @@ export const VKU_TIME_SLOTS: readonly TimeSlot[] = [
 ] as const;
 
 export const DEFAULT_USER_SESSION: UserSession = {
-  id: 'usr_vku_22it045',
-  studentId: '22IT045',
-  name: 'Nguyễn Văn An',
-  email: 'annv.22it@vku.udn.vn',
+  id: 'usr_vku_23it196',
+  studentId: '23IT196',
+  name: 'Đặng Long Nhật',
+  email: 'nhatdl.23it@vku.udn.vn',
   major: 'Kỹ thuật Phần mềm (Software Engineering)',
   department: 'Khoa Công nghệ Thông tin & Truyền thông',
   avatarUrl: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=400&auto=format&fit=crop&q=80',

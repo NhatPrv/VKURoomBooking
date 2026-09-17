@@ -9,9 +9,9 @@
 
 ## PHẦN 1: THÔNG TIN CHUNG & ĐƯỜNG DẪN NỘP BÀI (GENERAL INFORMATION)
 
-- **Họ và tên sinh viên:** Nguyễn Văn An
-- **Mã số sinh viên (MSSV):** 22IT045
-- **Lớp sinh hoạt:** 22IT1
+- **Họ và tên sinh viên:** Đặng Long Nhật
+- **Mã số sinh viên (MSSV):** 23IT196
+- **Lớp sinh hoạt:** 23IT
 - **Chuyên ngành:** Kỹ thuật Phần mềm (Software Engineering)
 - **Tên đề tài:** Xây dựng ứng dụng đặt phòng học thời gian thực tại VKU (Real-time Study Room Booking App)
 - **Đường dẫn GitHub Repository (Public):** [https://github.com/NhatPrv/VKURoomBooking](https://github.com/NhatPrv/VKURoomBooking)
