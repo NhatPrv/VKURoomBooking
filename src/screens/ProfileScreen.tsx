@@ -1,13 +1,5 @@
-import React from 'react';
-import {
-  View,
-  Text,
-  StyleSheet,
-  ScrollView,
-  Pressable,
-  Switch,
-  Alert,
-} from 'react-native';
+import { View, Text, StyleSheet, ScrollView, Pressable, Switch, Alert } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 import { Ionicons } from '@expo/vector-icons';
 import { Header } from '../components/Header';
 import { useBookingStore } from '../store/useBookingStore';
@@ -46,7 +38,7 @@ export const ProfileScreen: React.FC = () => {
   };
 
   return (
-    <View style={styles.container}>
+    <SafeAreaView edges={['top', 'left', 'right']} style={styles.container}>
       <Header
         title="Hồ Sơ Sinh Viên"
         subtitle="Thông tin cá nhân & Thiết lập kiểm thử giảng viên"
@@ -127,7 +119,14 @@ export const ProfileScreen: React.FC = () => {
           </View>
 
           {/* Nút xóa cache AsyncStorage */}
-          <Pressable onPress={handleClearData} style={styles.actionRowBtn}>
+          <Pressable
+            onPress={handleClearData}
+            hitSlop={8}
+            style={({ pressed }) => [
+              styles.actionRowBtn,
+              { opacity: pressed ? 0.7 : 1 },
+            ]}
+          >
             <View style={styles.actionIconContainer}>
               <Ionicons name="trash-bin-outline" size={16} color={COLORS.danger} />
             </View>
@@ -164,7 +163,7 @@ export const ProfileScreen: React.FC = () => {
           </View>
         </View>
       </ScrollView>
-    </View>
+    </SafeAreaView>
   );
 };
 

@@ -77,9 +77,11 @@ export const FilterChips: React.FC<FilterChipsProps> = ({
               <Pressable
                 key={`bldg_${b}`}
                 onPress={() => handleBuildingSelect(b)}
-                style={[
+                hitSlop={8}
+                style={({ pressed }) => [
                   styles.chip,
                   isSelected ? styles.chipActive : styles.chipInactive,
+                  { opacity: pressed ? 0.7 : 1 },
                 ]}
               >
                 <Text
@@ -110,10 +112,12 @@ export const FilterChips: React.FC<FilterChipsProps> = ({
               <Pressable
                 key={`amenity_${amenity}`}
                 onPress={() => handleAmenityToggle(amenity)}
-                style={[
+                hitSlop={8}
+                style={({ pressed }) => [
                   styles.chip,
                   styles.amenityChip,
                   isSelected ? styles.amenityChipActive : styles.chipInactive,
+                  { opacity: pressed ? 0.7 : 1 },
                 ]}
               >
                 {isSelected && (
@@ -151,9 +155,11 @@ export const FilterChips: React.FC<FilterChipsProps> = ({
               <Pressable
                 key={`cap_${cap.min}`}
                 onPress={() => handleCapacitySelect(cap.min)}
-                style={[
+                hitSlop={8}
+                style={({ pressed }) => [
                   styles.capChip,
                   isSelected ? styles.capChipActive : styles.chipInactive,
+                  { opacity: pressed ? 0.7 : 1 },
                 ]}
               >
                 <Text
@@ -175,7 +181,11 @@ export const FilterChips: React.FC<FilterChipsProps> = ({
               feedbackEffects.lightTap();
               onReset();
             }}
-            style={styles.resetBtn}
+            hitSlop={8}
+            style={({ pressed }) => [
+              styles.resetBtn,
+              { opacity: pressed ? 0.7 : 1 },
+            ]}
           >
             <Ionicons name="refresh-outline" size={14} color={COLORS.secondary} />
             <Text style={styles.resetBtnText}>Xóa lọc</Text>

@@ -45,9 +45,10 @@ const RoomCardComponent: React.FC<RoomCardProps> = ({
   return (
     <Pressable
       onPress={handlePress}
+      hitSlop={8}
       style={({ pressed }) => [
         styles.card,
-        pressed && styles.cardPressed,
+        { opacity: pressed ? 0.7 : 1 },
       ]}
     >
       {/* Ảnh bìa phòng & Tags trạng thái */}

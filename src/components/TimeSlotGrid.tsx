@@ -42,11 +42,12 @@ export const TimeSlotGrid: React.FC<TimeSlotGridProps> = ({
               key={slot.id}
               disabled={isOccupied || isSubmitting}
               onPress={() => handlePressSlot(slot, isOccupied)}
+              hitSlop={8}
               style={({ pressed }) => [
                 styles.slotCard,
                 isOccupied && styles.slotOccupied,
                 isSelected && !isOccupied && styles.slotSelected,
-                pressed && !isOccupied && styles.slotPressed,
+                { opacity: pressed && !isOccupied ? 0.7 : 1 },
               ]}
             >
               {/* Đầu thẻ slot: Tên ca & Trạng thái */}
