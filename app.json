@@ -1,0 +1,48 @@
+{
+  "expo": {
+    "name": "VKU Room Booking",
+    "slug": "vku-room-booking",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "light",
+    "splash": {
+      "image": "./assets/splash-icon.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#0D1B2A"
+    },
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "edu.vku.roombooking"
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#0D1B2A"
+      },
+      "package": "edu.vku.roombooking",
+      "permissions": [
+        "NOTIFICATIONS"
+      ]
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
+    },
+    "plugins": [
+      [
+        "expo-notifications",
+        {
+          "icon": "./assets/icon.png",
+          "color": "#1E88E5",
+          "sounds": []
+        }
+      ]
+    ],
+    "extra": {
+      "course": "Lập trình đa nền tảng",
+      "instructor": "TS. Nguyễn Thanh Tuấn",
+      "institution": "VKU - Trường Đại học CNTT & TT Việt - Hàn",
+      "academicYear": "2025-2026"
+    }
+  }
+}
