@@ -23,7 +23,7 @@ export default function App() {
   return (
     <SafeAreaProvider>
       <SafeAreaView style={styles.safeArea} edges={['top', 'left', 'right']}>
-        <StatusBar style="dark" backgroundColor={COLORS.surface} />
+        <StatusBar style="dark" />
         <View style={styles.container}>
           <RootNavigator />
         </View>
