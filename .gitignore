@@ -1,0 +1,33 @@
+# Node & Package Managers
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# Expo & Metro Bundler
+.expo/
+.expo-shared/
+dist/
+web-build/
+
+# Native builds
+android/
+ios/
+*.orig.*
+
+# Environment & Local variables
+.env
+.env.local
+.env.*.local
+
+# OS & Editor files
+.DS_Store
+*.pem
+Thumbs.db
+.vscode/
+.idea/
+
+# Testing & Logs
+coverage/
+*.log
