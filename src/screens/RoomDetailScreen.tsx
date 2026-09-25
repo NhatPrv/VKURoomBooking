@@ -13,6 +13,7 @@ import {
 } from 'react-native';
 import { RouteProp, useRoute, useNavigation } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
+import { SafeAreaView } from 'react-native-safe-area-context';
 import { Ionicons } from '@expo/vector-icons';
 import { RootStackParamList } from '../types/navigation';
 import { useBookingStore } from '../store/useBookingStore';
@@ -120,7 +121,7 @@ export const RoomDetailScreen: React.FC = () => {
   };
 
   return (
-    <View style={styles.container}>
+    <SafeAreaView edges={['top', 'left', 'right']} style={styles.container}>
       {/* Header điều hướng */}
       <View style={styles.topNav}>
         <Pressable
@@ -128,7 +129,11 @@ export const RoomDetailScreen: React.FC = () => {
             feedbackEffects.lightTap();
             navigation.goBack();
           }}
-          style={styles.navBackBtn}
+          hitSlop={8}
+          style={({ pressed }) => [
+            styles.navBackBtn,
+            { opacity: pressed ? 0.7 : 1 },
+          ]}
         >
           <Ionicons name="arrow-back" size={20} color={COLORS.primary} />
         </Pressable>
@@ -267,7 +272,7 @@ export const RoomDetailScreen: React.FC = () => {
             value={purpose}
             onChangeText={setPurpose}
             placeholder="Ví dụ: Thảo luận bài tập lớn, nghiên cứu khoa học..."
-            placeholderTextColor={COLORS.textMuted}
+            placeholderTextColor="#94A3B8"
             multiline
             numberOfLines={2}
           />
@@ -284,9 +289,11 @@ export const RoomDetailScreen: React.FC = () => {
                       feedbackEffects.lightTap();
                       setAttendeesCount(num);
                     }}
-                    style={[
+                    hitSlop={8}
+                    style={({ pressed }) => [
                       styles.counterPill,
                       isSelected && styles.counterPillSelected,
+                      { opacity: pressed ? 0.7 : 1 },
                     ]}
                   >
                     <Text
@@ -337,9 +344,11 @@ export const RoomDetailScreen: React.FC = () => {
         <Pressable
           onPress={handleBookingSubmit}
           disabled={!selectedSlot || isSubmittingBooking}
-          style={[
+          hitSlop={8}
+          style={({ pressed }) => [
             styles.submitBtn,
             (!selectedSlot || isSubmittingBooking) && styles.submitBtnDisabled,
+            { opacity: pressed ? 0.7 : 1 },
           ]}
         >
           {isSubmittingBooking ? (
@@ -367,7 +376,7 @@ export const RoomDetailScreen: React.FC = () => {
         }}
         onCancelBooking={cancelBooking}
       />
-    </View>
+    </SafeAreaView>
   );
 };
 

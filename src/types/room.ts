@@ -18,6 +18,8 @@ export interface TimeSlot {
   readonly session: 'MORNING' | 'AFTERNOON';
 }
 
+export type BuildingId = Building;
+
 export interface Room {
   readonly id: string;
   readonly code: string;
@@ -30,6 +32,7 @@ export interface Room {
   readonly description: string;
   readonly rules: readonly string[];
   readonly isMaintenance?: boolean;
+  readonly isAvailableNow?: boolean;
 }
 
 export interface RoomFilterState {

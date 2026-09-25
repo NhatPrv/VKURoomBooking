@@ -9,6 +9,7 @@ import {
   ScrollView,
   ListRenderItem,
 } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 import { useNavigation } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { Ionicons } from '@expo/vector-icons';
@@ -113,7 +114,7 @@ export const BrowseRoomsScreen: React.FC = () => {
   const keyExtractor = useCallback((item: Room) => item.id, []);
 
   return (
-    <View style={styles.container}>
+    <SafeAreaView edges={['top', 'left', 'right']} style={styles.container}>
       <Header
         title="Đặt Phòng Học VKU"
         subtitle="Hệ thống đăng ký phòng thực hành & tự học thông minh"
@@ -122,11 +123,11 @@ export const BrowseRoomsScreen: React.FC = () => {
       {/* Thanh tìm kiếm */}
       <View style={styles.searchBarContainer}>
         <View style={styles.searchBar}>
-          <Ionicons name="search" size={18} color={COLORS.textMuted} />
+          <Ionicons name="search" size={18} color="#94A3B8" />
           <TextInput
             style={styles.searchInput}
             placeholder="Tìm theo mã phòng (V.204, A.102) hoặc tiện ích..."
-            placeholderTextColor={COLORS.textMuted}
+            placeholderTextColor="#94A3B8"
             value={filter.searchQuery}
             onChangeText={(text) => setFilter({ searchQuery: text })}
             clearButtonMode="while-editing"
@@ -134,9 +135,13 @@ export const BrowseRoomsScreen: React.FC = () => {
           {filter.searchQuery.length > 0 && (
             <Pressable
               onPress={() => setFilter({ searchQuery: '' })}
-              style={styles.clearSearchBtn}
+              hitSlop={8}
+              style={({ pressed }) => [
+                styles.clearSearchBtn,
+                { opacity: pressed ? 0.7 : 1 },
+              ]}
             >
-              <Ionicons name="close-circle" size={16} color={COLORS.textMuted} />
+              <Ionicons name="close-circle" size={16} color="#94A3B8" />
             </Pressable>
           )}
         </View>
@@ -156,9 +161,11 @@ export const BrowseRoomsScreen: React.FC = () => {
               <Pressable
                 key={item.date}
                 onPress={() => handleSelectDate(item.date)}
-                style={[
+                hitSlop={8}
+                style={({ pressed }) => [
                   styles.datePill,
                   isSelected && styles.datePillSelected,
+                  { opacity: pressed ? 0.7 : 1 },
                 ]}
               >
                 <Text
@@ -212,18 +219,25 @@ export const BrowseRoomsScreen: React.FC = () => {
         removeClippedSubviews={true}
         ListEmptyComponent={
           <View style={styles.emptyState}>
-            <Ionicons name="alert-circle-outline" size={48} color={COLORS.textMuted} />
+            <Ionicons name="alert-circle-outline" size={48} color="#94A3B8" />
             <Text style={styles.emptyTitle}>Không tìm thấy phòng phù hợp</Text>
             <Text style={styles.emptySubtitle}>
               Vui lòng thử nới lỏng các tiêu chí lọc tòa nhà, sức chứa hoặc từ khóa tìm kiếm.
             </Text>
-            <Pressable onPress={resetFilter} style={styles.resetFilterBtn}>
+            <Pressable
+              onPress={resetFilter}
+              hitSlop={8}
+              style={({ pressed }) => [
+                styles.resetFilterBtn,
+                { opacity: pressed ? 0.7 : 1 },
+              ]}
+            >
               <Text style={styles.resetFilterBtnText}>Đặt lại bộ lọc</Text>
             </Pressable>
           </View>
         }
       />
-    </View>
+    </SafeAreaView>
   );
 };
 

@@ -71,7 +71,11 @@ export const BookingPassModal: React.FC<BookingPassModalProps> = ({
                 feedbackEffects.lightTap();
                 onClose();
               }}
-              style={styles.closeBtn}
+              hitSlop={8}
+              style={({ pressed }) => [
+                styles.closeBtn,
+                { opacity: pressed ? 0.7 : 1 },
+              ]}
             >
               <Ionicons name="close" size={20} color={COLORS.textSecondary} />
             </Pressable>
@@ -180,7 +184,11 @@ export const BookingPassModal: React.FC<BookingPassModalProps> = ({
             <View style={styles.actionButtons}>
               <Pressable
                 onPress={handleCancelPress}
-                style={styles.cancelBtn}
+                hitSlop={8}
+                style={({ pressed }) => [
+                  styles.cancelBtn,
+                  { opacity: pressed ? 0.7 : 1 },
+                ]}
               >
                 <Ionicons name="trash-outline" size={16} color={COLORS.danger} />
                 <Text style={styles.cancelBtnText}>Hủy Đặt Phòng</Text>
@@ -191,7 +199,11 @@ export const BookingPassModal: React.FC<BookingPassModalProps> = ({
                   feedbackEffects.lightTap();
                   onClose();
                 }}
-                style={styles.doneBtn}
+                hitSlop={8}
+                style={({ pressed }) => [
+                  styles.doneBtn,
+                  { opacity: pressed ? 0.7 : 1 },
+                ]}
               >
                 <Text style={styles.doneBtnText}>Xong</Text>
               </Pressable>

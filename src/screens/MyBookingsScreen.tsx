@@ -8,6 +8,7 @@ import {
   Alert,
 } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 import { Ionicons } from '@expo/vector-icons';
 import { Header } from '../components/Header';
 import { BookingPassModal } from '../components/BookingPassModal';
@@ -59,7 +60,7 @@ export const MyBookingsScreen: React.FC = () => {
   };
 
   return (
-    <View style={styles.container}>
+    <SafeAreaView edges={['top', 'left', 'right']} style={styles.container}>
       <Header
         title="Lịch Đặt Của Tôi"
         subtitle="Quản lý thẻ phòng học & mã QR điểm danh"
@@ -72,9 +73,11 @@ export const MyBookingsScreen: React.FC = () => {
             feedbackEffects.lightTap();
             setActiveTab('ACTIVE');
           }}
-          style={[
+          hitSlop={8}
+          style={({ pressed }) => [
             styles.tabBtn,
             activeTab === 'ACTIVE' && styles.tabBtnActive,
+            { opacity: pressed ? 0.7 : 1 },
           ]}
         >
           <Text
@@ -92,9 +95,11 @@ export const MyBookingsScreen: React.FC = () => {
             feedbackEffects.lightTap();
             setActiveTab('HISTORY');
           }}
-          style={[
+          hitSlop={8}
+          style={({ pressed }) => [
             styles.tabBtn,
             activeTab === 'HISTORY' && styles.tabBtnActive,
+            { opacity: pressed ? 0.7 : 1 },
           ]}
         >
           <Text
@@ -192,7 +197,11 @@ export const MyBookingsScreen: React.FC = () => {
                 {!isCancelled && (
                   <Pressable
                     onPress={() => handleCancelBooking(item)}
-                    style={styles.cancelActionBtn}
+                    hitSlop={8}
+                    style={({ pressed }) => [
+                      styles.cancelActionBtn,
+                      { opacity: pressed ? 0.7 : 1 },
+                    ]}
                   >
                     <Ionicons name="close-circle-outline" size={15} color={COLORS.danger} />
                     <Text style={styles.cancelActionText}>Hủy</Text>
@@ -201,7 +210,11 @@ export const MyBookingsScreen: React.FC = () => {
 
                 <Pressable
                   onPress={() => handleOpenPass(item)}
-                  style={styles.qrPassBtn}
+                  hitSlop={8}
+                  style={({ pressed }) => [
+                    styles.qrPassBtn,
+                    { opacity: pressed ? 0.7 : 1 },
+                  ]}
                 >
                   <Ionicons name="qr-code" size={15} color={COLORS.textInverse} />
                   <Text style={styles.qrPassBtnText}>Thẻ Phòng & QR</Text>
@@ -212,7 +225,7 @@ export const MyBookingsScreen: React.FC = () => {
         }}
         ListEmptyComponent={
           <View style={styles.emptyContainer}>
-            <Ionicons name="calendar-clear-outline" size={54} color={COLORS.textMuted} />
+            <Ionicons name="calendar-clear-outline" size={54} color="#94A3B8" />
             <Text style={styles.emptyTitle}>
               {activeTab === 'ACTIVE'
                 ? 'Bạn chưa có lịch đặt phòng nào'
@@ -223,7 +236,11 @@ export const MyBookingsScreen: React.FC = () => {
             </Text>
             <Pressable
               onPress={() => navigation.navigate('BrowseRooms')}
-              style={styles.browseRoomsBtn}
+              hitSlop={8}
+              style={({ pressed }) => [
+                styles.browseRoomsBtn,
+                { opacity: pressed ? 0.7 : 1 },
+              ]}
             >
               <Text style={styles.browseRoomsBtnText}>Tìm Phòng Học Ngay</Text>
             </Pressable>
@@ -238,7 +255,7 @@ export const MyBookingsScreen: React.FC = () => {
         onClose={() => setSelectedPass(null)}
         onCancelBooking={cancelBooking}
       />
-    </View>
+    </SafeAreaView>
   );
 };
 
